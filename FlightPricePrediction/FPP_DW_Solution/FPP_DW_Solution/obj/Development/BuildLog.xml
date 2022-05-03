@@ -2,13 +2,13 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>FPP_DW_Solution</Name>
-    <LastWriteTime>2022-05-03T12:52:54.9887921Z</LastWriteTime>
+    <LastWriteTime>2022-05-03T13:06:12.8268213Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>FPP_load_Staging.dtsx</Name>
-      <LastWriteTime>2022-05-03T12:52:14.7742145Z</LastWriteTime>
+      <LastWriteTime>2022-05-03T13:05:44.5489665Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

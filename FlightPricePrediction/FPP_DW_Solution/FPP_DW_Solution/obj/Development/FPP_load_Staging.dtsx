@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FPP_load_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{F800EAA5-5263-428D-A853-F3B2EEF7BA24}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{64AE7D7C-F617-49B5-9A49-6F03C25B5D35}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -100,6 +100,79 @@
               DTS:TextQualified="True"
               DTS:ObjectName="City"
               DTS:DTSID="{7D4B9AAA-D693-4D7D-B94C-C2DFADC1A6E8}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B266E902-BC57-4986-9674-9421DE730759}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\Yomal Bandara\Desktop\DWBI_Assignment_1\DataSources\ticket.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TicketID"
+              DTS:DTSID="{A3051ABC-3415-4102-AC0F-84F61BF9EAA4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerID"
+              DTS:DTSID="{66548846-F911-4CB5-BABB-C6F4719E72D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="JourneyID"
+              DTS:DTSID="{23CF2226-5E9D-4BC4-9B24-DEA6C4D0936F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Price"
+              DTS:DTSID="{DEFEF7E2-71F2-45C5-BF99-301343D13151}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TicketClass"
+              DTS:DTSID="{DB572949-A91E-4666-A3F5-5CE0F5E4F343}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Purchase_Date"
+              DTS:DTSID="{87067E3B-28F5-4FA6-9F05-3A140C83206B}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1447,6 +1520,463 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Extract Ticket Data to Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{50C1ED5D-0EBF-43C7-BB38-557EBE9D0942}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract Ticket Data to Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Extract Ticket Data to Staging.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{0D67CD49-9CCA-4728-8166-2A8EE4A69E3D}"
+          DTS:EventID="0"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{0C57EEBA-A722-479B-B6AF-B82A934E5107}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Extract Ticket Data to Staging.EventHandlers[OnPreExecute]\Truncate Ticket Staging Table"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{03594064-7558-42F0-8766-8407FA048C5A}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Truncate Ticket Staging Table"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{927964CA-76C3-48F7-BCFF-23B1AD89E565}"
+                  SQLTask:SqlStatementSource="truncate table dbo.StgTicket" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract Ticket Data to Staging\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Ticket Data to Staging\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[TicketID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TicketID]"
+                      length="50"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[TicketID]"
+                      name="TicketID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerID]"
+                      length="50"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[JourneyID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[JourneyID]"
+                      length="50"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[JourneyID]"
+                      name="JourneyID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Price]"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Price]"
+                      name="Price"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[TicketClass]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TicketClass]"
+                      length="50"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[TicketClass]"
+                      name="TicketClass"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Purchase_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Purchase_Date]"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Purchase_Date]"
+                      name="Purchase_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TicketID]"
+                      dataType="wstr"
+                      length="50"
+                      name="TicketID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="50"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[JourneyID]"
+                      dataType="wstr"
+                      length="50"
+                      name="JourneyID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Price]"
+                      dataType="numeric"
+                      name="Price"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TicketClass]"
+                      dataType="wstr"
+                      length="50"
+                      name="TicketClass" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Purchase_Date]"
+                      dataType="date"
+                      name="Purchase_Date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load Data to Ticket Staging Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[StgTicket]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-H4618BP.FPP_staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-H4618BP.FPP_staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].Columns[TicketID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="TicketID"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[TicketID]"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[TicketID]" />
+                    <inputColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].Columns[JourneyID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JourneyID"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[JourneyID]"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[JourneyID]" />
+                    <inputColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].Columns[Price]"
+                      cachedDataType="numeric"
+                      cachedName="Price"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Price]" />
+                    <inputColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].Columns[TicketClass]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="TicketClass"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[TicketClass]"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[TicketClass]" />
+                    <inputColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].Columns[Purchase_Date]"
+                      cachedDataType="date"
+                      cachedName="Purchase_Date"
+                      externalMetadataColumnId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[Purchase_Date]"
+                      lineageId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Purchase_Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[TicketID]"
+                      dataType="wstr"
+                      length="50"
+                      name="TicketID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="50"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[JourneyID]"
+                      dataType="wstr"
+                      length="50"
+                      name="JourneyID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="numeric"
+                      name="Price"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[TicketClass]"
+                      dataType="wstr"
+                      length="50"
+                      name="TicketClass" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[Purchase_Date]"
+                      dataType="dbTimeStamp"
+                      name="Purchase_Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract Ticket Data to Staging.Paths[Flat File Source Output]"
+              endId="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Extract Ticket Data to Staging\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -1465,6 +1995,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Extract Customer Data to Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{28DF0041-BC4B-444D-89B1-2324FEDF7691}"
+      DTS:From="Package\Extract Customer Data to Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Extract Ticket Data to Staging" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1550,6 +2088,44 @@
                     Point3="123.285716317138,32.9058830500474" />
                   <mssgle:LineSegment
                     End="123.285716317138,50.3117661000948" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Extract Ticket Data to Staging"
+          TopLeft="420.000007152557,344.117651884944" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="413.71429075027,295.482356501781">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115.885716402287,48.6352953831631"
+              Start="0,0"
+              End="115.885716402287,41.1352953831631">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3176476915815" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3176476915815"
+                    Point2="0,24.3176476915815"
+                    Point3="4,24.3176476915815" />
+                  <mssgle:LineSegment
+                    End="111.885716402287,24.3176476915815" />
+                  <mssgle:CubicBezierSegment
+                    Point1="111.885716402287,24.3176476915815"
+                    Point2="115.885716402287,24.3176476915815"
+                    Point3="115.885716402287,28.3176476915815" />
+                  <mssgle:LineSegment
+                    End="115.885716402287,41.1352953831631" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1773,6 +2349,69 @@
           Size="236,41.6"
           Id="Package\Extract Customer Data to Staging.EventHandlers[OnPreExecute]\Truncate Customer Staging Table"
           TopLeft="320,99" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Extract Ticket Data to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Extract Ticket Data to Staging\Flat File Source"
+          TopLeft="258,178" />
+        <NodeLayout
+          Size="238.4,41.6"
+          Id="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table"
+          TopLeft="720,171" />
+        <EdgeLayout
+          Id="Package\Extract Ticket Data to Staging.Paths[Flat File Source Output]"
+          TopLeft="408.4,195.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="311.6,0"
+              Start="0,0"
+              End="304.1,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="304.1,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package\Extract Ticket Data to Staging.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Extract Ticket Data to Staging.EventHandlers[OnPreExecute]\Truncate Ticket Staging Table"
+          TopLeft="261,99" />
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
