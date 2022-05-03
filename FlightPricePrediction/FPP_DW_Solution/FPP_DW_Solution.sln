@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1831
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "FPP_DW_Solution", "FPP_DW_Solution\FPP_DW_Solution.dtproj", "{07D61394-80DA-4BD0-9F84-EA10BEF66959}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07D61394-80DA-4BD0-9F84-EA10BEF66959}.Development|Default.ActiveCfg = Development
+		{07D61394-80DA-4BD0-9F84-EA10BEF66959}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84848573-3000-4112-9344-AA884CEC430D}
+	EndGlobalSection
+EndGlobal
