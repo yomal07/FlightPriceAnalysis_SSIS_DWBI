@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FPP_load_DataWarehouse"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{382FDD68-9A88-47E6-99C2-28269B1FA1E3}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{49CEECB8-C1BC-4583-8A54-C2BB5CDC8929}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -419,7 +419,1398 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transform and Load Journey Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7D58A652-5621-437D-801E-BB82D3E934C5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transform and Load Journey Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Transform and Load Journey Data\Extract from Flight Dimension"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract from Flight Dimension"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimFlight]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-H4618BP.FPP_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-H4618BP.FPP_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[FlightSK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[FlightSK]"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[FlightSK]"
+                      name="FlightSK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[AlternateFlightID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[AlternateFlightID]"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[AlternateFlightID]"
+                      name="AlternateFlightID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Airline_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[Airline_Name]"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Airline_Name]"
+                      name="Airline_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_Year]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[Build_Year]"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_Year]"
+                      name="Build_Year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_Month]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[Build_Month]"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_Month]"
+                      name="Build_Month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_date]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[Build_date]"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_date]"
+                      name="Build_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[InsertDate]"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[InsertDate]"
+                      name="InsertDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[FlightSK]"
+                      dataType="i4"
+                      name="FlightSK" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[AlternateFlightID]"
+                      dataType="wstr"
+                      length="50"
+                      name="AlternateFlightID" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[Airline_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Airline_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[Build_Year]"
+                      dataType="i2"
+                      name="Build_Year" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[Build_Month]"
+                      dataType="ui1"
+                      name="Build_Month" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[Build_date]"
+                      dataType="ui1"
+                      name="Build_date" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      name="InsertDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[FlightSK]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[FlightSK]"
+                      name="FlightSK" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[AlternateFlightID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[AlternateFlightID]"
+                      name="AlternateFlightID" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[Airline_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[Airline_Name]"
+                      name="Airline_Name" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[Build_Year]"
+                      dataType="i2"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[Build_Year]"
+                      name="Build_Year" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[Build_Month]"
+                      dataType="ui1"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[Build_Month]"
+                      name="Build_Month" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[Build_date]"
+                      dataType="ui1"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[Build_date]"
+                      name="Build_date" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[InsertDate]"
+                      name="InsertDate" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transform and Load Journey Data\Extract from Journey Staging"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract from Journey Staging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgJourney]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-H4618BP.FPP_staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-H4618BP.FPP_staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[JourneyID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[JourneyID]"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[JourneyID]"
+                      name="JourneyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[FlightID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[FlightID]"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[FlightID]"
+                      name="FlightID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[SourceCity]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[SourceCity]"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[SourceCity]"
+                      name="SourceCity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[DepTime]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[DepTime]"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[DepTime]"
+                      name="DepTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[ArrivalTime]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[ArrivalTime]"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[ArrivalTime]"
+                      name="ArrivalTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[Destination]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[Destination]"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[Destination]"
+                      name="Destination"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[JourneyID]"
+                      dataType="wstr"
+                      length="50"
+                      name="JourneyID" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[FlightID]"
+                      dataType="wstr"
+                      length="50"
+                      name="FlightID" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[Stops]"
+                      dataType="ui1"
+                      name="Stops" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[Duration]"
+                      dataType="r8"
+                      name="Duration" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[SourceCity]"
+                      dataType="wstr"
+                      length="50"
+                      name="SourceCity" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[DepTime]"
+                      dataType="wstr"
+                      length="50"
+                      name="DepTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[ArrivalTime]"
+                      dataType="wstr"
+                      length="50"
+                      name="ArrivalTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].ExternalColumns[Destination]"
+                      dataType="wstr"
+                      length="50"
+                      name="Destination" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[JourneyID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[JourneyID]"
+                      name="JourneyID" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[FlightID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[FlightID]"
+                      name="FlightID" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[SourceCity]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[SourceCity]"
+                      name="SourceCity" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[DepTime]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[DepTime]"
+                      name="DepTime" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[ArrivalTime]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[ArrivalTime]"
+                      name="ArrivalTime" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[Destination]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[Destination]"
+                      name="Destination" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transform and Load Journey Data\Flight Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Flight Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Transform and Load Journey Data\Flight Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Inputs[Sort Input].Columns[FlightSK]"
+                      cachedDataType="i4"
+                      cachedName="FlightSK"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[FlightSK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Inputs[Sort Input].Columns[AlternateFlightID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AlternateFlightID"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[AlternateFlightID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Inputs[Sort Input].Columns[Airline_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Airline_Name"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Airline_Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Inputs[Sort Input].Columns[Build_Year]"
+                      cachedDataType="i2"
+                      cachedName="Build_Year"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_Year]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Inputs[Sort Input].Columns[Build_Month]"
+                      cachedDataType="ui1"
+                      cachedName="Build_Month"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_Month]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Inputs[Sort Input].Columns[Build_date]"
+                      cachedDataType="ui1"
+                      cachedName="Build_date"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Inputs[Sort Input].Columns[InsertDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="InsertDate"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[InsertDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Inputs[Sort Input].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[ModifiedDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[FlightSK]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[FlightSK]"
+                      name="FlightSK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[FlightSK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[AlternateFlightID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[AlternateFlightID]"
+                      name="AlternateFlightID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[AlternateFlightID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[Airline_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[Airline_Name]"
+                      name="Airline_Name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Airline_Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[Build_Year]"
+                      dataType="i2"
+                      lineageId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[Build_Year]"
+                      name="Build_Year">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_Year]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[Build_Month]"
+                      dataType="ui1"
+                      lineageId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[Build_Month]"
+                      name="Build_Month">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_Month]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[Build_date]"
+                      dataType="ui1"
+                      lineageId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[Build_date]"
+                      name="Build_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[Build_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[InsertDate]"
+                      name="InsertDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[InsertDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[ModifiedDate]"
+                      name="ModifiedDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output].Columns[ModifiedDate]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transform and Load Journey Data\Journey Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Journey Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Transform and Load Journey Data\Journey Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Inputs[Sort Input].Columns[JourneyID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JourneyID"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[JourneyID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Inputs[Sort Input].Columns[FlightID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FlightID"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[FlightID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Inputs[Sort Input].Columns[SourceCity]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SourceCity"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[SourceCity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Inputs[Sort Input].Columns[DepTime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DepTime"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[DepTime]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Inputs[Sort Input].Columns[ArrivalTime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ArrivalTime"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[ArrivalTime]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Inputs[Sort Input].Columns[Destination]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Destination"
+                      lineageId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[Destination]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[JourneyID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[JourneyID]"
+                      name="JourneyID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[JourneyID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[FlightID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[FlightID]"
+                      name="FlightID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[FlightID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[SourceCity]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[SourceCity]"
+                      name="SourceCity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[SourceCity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[DepTime]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[DepTime]"
+                      name="DepTime">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[DepTime]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[ArrivalTime]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[ArrivalTime]"
+                      name="ArrivalTime">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[ArrivalTime]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[Destination]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[Destination]"
+                      name="Destination">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output].Columns[Destination]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transform and Load Journey Data\Load DimJourney"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Load DimJourney"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">exec dbo.UpdateDimJourney ?, ?, ?, ?, ?, ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transform and Load Journey Data\Load DimJourney.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-H4618BP.FPP_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-H4618BP.FPP_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].Columns[JourneyID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JourneyID"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@JourneyID]"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[JourneyID]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].Columns[ArrivalTime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ArrivalTime"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@ArrivalTime]"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[ArrivalTime]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].Columns[FlightSK]"
+                      cachedDataType="i4"
+                      cachedName="FlightSK"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@FlightKey]"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[FlightSK]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].Columns[SourceCity]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SourceCity"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@SourceCity]"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[SourceCity]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].Columns[DepTime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DepTime"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@DepTime]"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[DepTime]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].Columns[Destination]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Destination"
+                      externalMetadataColumnId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@Destination]"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[Destination]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@JourneyID]"
+                      dataType="wstr"
+                      length="50"
+                      name="@JourneyID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@FlightKey]"
+                      dataType="i4"
+                      name="@FlightKey">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@SourceCity]"
+                      dataType="wstr"
+                      length="50"
+                      name="@SourceCity">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@DepTime]"
+                      dataType="wstr"
+                      length="50"
+                      name="@DepTime">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@ArrivalTime]"
+                      dataType="wstr"
+                      length="50"
+                      name="@ArrivalTime">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input].ExternalColumns[@Destination]"
+                      dataType="wstr"
+                      length="50"
+                      name="@Destination">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load Journey Data\Load DimJourney.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transform and Load Journey Data\Load DimJourney.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Journey Data\Load DimJourney.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Load DimJourney.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Journey Data\Load DimJourney.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transform and Load Journey Data\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input].Columns[FlightID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FlightID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[FlightID]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input].Columns[JourneyID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JourneyID"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[JourneyID]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input].Columns[SourceCity]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SourceCity"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[SourceCity]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input].Columns[DepTime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DepTime"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[DepTime]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input].Columns[ArrivalTime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ArrivalTime"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[ArrivalTime]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input].Columns[Destination]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Destination"
+                      lineageId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output].Columns[Destination]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Right Input].Columns[AlternateFlightID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AlternateFlightID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[AlternateFlightID]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Right Input].Columns[FlightSK]"
+                      cachedDataType="i4"
+                      cachedName="FlightSK"
+                      lineageId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output].Columns[FlightSK]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[JourneyID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[JourneyID]"
+                      name="JourneyID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input].Columns[JourneyID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[SourceCity]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[SourceCity]"
+                      name="SourceCity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input].Columns[SourceCity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[DepTime]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[DepTime]"
+                      name="DepTime">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input].Columns[DepTime]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[ArrivalTime]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[ArrivalTime]"
+                      name="ArrivalTime">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input].Columns[ArrivalTime]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[Destination]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[Destination]"
+                      name="Destination">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input].Columns[Destination]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[FlightSK]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output].Columns[FlightSK]"
+                      name="FlightSK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Right Input].Columns[FlightSK]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Transform and Load Journey Data.Paths[Merge Join Output]"
+              endId="Package\Transform and Load Journey Data\Load DimJourney.Inputs[OLE DB Command Input]"
+              name="Merge Join Output"
+              startId="Package\Transform and Load Journey Data\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Transform and Load Journey Data.Paths[OLE DB Source Output]"
+              endId="Package\Transform and Load Journey Data\Journey Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Transform and Load Journey Data\Extract from Journey Staging.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Transform and Load Journey Data.Paths[OLE DB Source Output1]"
+              endId="Package\Transform and Load Journey Data\Flight Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Transform and Load Journey Data\Extract from Flight Dimension.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Transform and Load Journey Data.Paths[Sort Output]"
+              endId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Transform and Load Journey Data\Journey Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Transform and Load Journey Data.Paths[Sort Output1]"
+              endId="Package\Transform and Load Journey Data\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Transform and Load Journey Data\Flight Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{578DA443-F330-44E5-807A-152A47DD16E7}"
+      DTS:From="Package\Transform and Load Flight Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Transform and Load Journey Data" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -431,11 +1822,49 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="228,41.6"
           Id="Package\Transform and Load Flight Data"
           TopLeft="104.285716061689,52.764706622358" />
+        <NodeLayout
+          Size="239.2,41.6"
+          Id="Package\Transform and Load Journey Data"
+          TopLeft="233.571432549126,154.470590401686" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="218.285716061689,94.364706622358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="134.885716487437,60.1058837793278"
+              Start="0,0"
+              End="134.885716487437,52.6058837793278">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0529418896639" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0529418896639"
+                    Point2="0,30.0529418896639"
+                    Point3="4,30.0529418896639" />
+                  <mssgle:LineSegment
+                    End="130.885716487437,30.0529418896639" />
+                  <mssgle:CubicBezierSegment
+                    Point1="130.885716487437,30.0529418896639"
+                    Point2="134.885716487437,30.0529418896639"
+                    Point3="134.885716487437,34.0529418896639" />
+                  <mssgle:LineSegment
+                    End="134.885716487437,52.6058837793278" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -479,6 +1908,198 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Transform and Load Flight Data\Extract from Flight Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Transform and Load Journey Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Transform and Load Journey Data\Extract from Journey Staging"
+          TopLeft="141.5,26.5" />
+        <NodeLayout
+          Size="218.4,41.6"
+          Id="Package\Transform and Load Journey Data\Extract from Flight Dimension"
+          TopLeft="585,30" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Transform and Load Journey Data\Journey Sort"
+          TopLeft="176,116" />
+        <EdgeLayout
+          Id="Package\Transform and Load Journey Data.Paths[OLE DB Source Output]"
+          TopLeft="246.95,68.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.9"
+              Start="0,0"
+              End="0,40.4">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.4" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Transform and Load Journey Data\Flight Sort"
+          TopLeft="625,118" />
+        <EdgeLayout
+          Id="Package\Transform and Load Journey Data.Paths[OLE DB Source Output1]"
+          TopLeft="691.2,71.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.4"
+              Start="0,0"
+              End="0,38.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Transform and Load Journey Data\Merge Join"
+          TopLeft="410,221" />
+        <EdgeLayout
+          Id="Package\Transform and Load Journey Data.Paths[Sort Output]"
+          TopLeft="244.8,157.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="230,63.4"
+              Start="0,0"
+              End="230,55.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.7"
+                    Point2="0,31.7"
+                    Point3="4,31.7" />
+                  <mssgle:LineSegment
+                    End="226,31.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="226,31.7"
+                    Point2="230,31.7"
+                    Point3="230,35.7" />
+                  <mssgle:LineSegment
+                    End="230,55.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform and Load Journey Data.Paths[Sort Output1]"
+          TopLeft="688.2,159.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-193.133333333333,61.4"
+              Start="0,0"
+              End="-193.133333333333,53.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.3907317073171" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.3907317073171"
+                    Point2="0,36.3907317073171"
+                    Point3="-4,36.3907317073171" />
+                  <mssgle:LineSegment
+                    End="-189.133333333333,36.3907317073171" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-189.133333333333,36.3907317073171"
+                    Point2="-193.133333333333,36.3907317073171"
+                    Point3="-193.133333333333,40.3907317073171" />
+                  <mssgle:LineSegment
+                    End="-193.133333333333,53.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\Transform and Load Journey Data\Load DimJourney"
+          TopLeft="402,327" />
+        <EdgeLayout
+          Id="Package\Transform and Load Journey Data.Paths[Merge Join Output]"
+          TopLeft="478.4,262.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.3999999999999"
+              Start="0,0"
+              End="0,56.8999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.8999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform and Load Journey Data\Extract from Journey Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform and Load Journey Data\Extract from Flight Dimension">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
