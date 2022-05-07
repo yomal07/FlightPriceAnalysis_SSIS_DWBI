@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FPP_load_DataWarehouse"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{B5373651-E207-4DC7-B66D-0288AC0C0DA4}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{3B94645B-4BD5-4655-BB85-B9CC1052746F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -53,6 +53,46 @@
       DTS:ObjectName="Transform amd Load Ticket Fact Table"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Transform amd Load Ticket Fact Table.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{704A4D54-46B5-4102-ADBF-EE0948CA40EA}"
+          DTS:EventID="-1"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{56509FBC-7B19-4FB0-9EFF-34886B89714E}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Transform amd Load Ticket Fact Table.EventHandlers[OnPreExecute]\Truncate FactTicket"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{9C55BBA0-ABED-4B6B-9C9B-01F6F3D7878C}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Truncate FactTicket"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{E0EA8C83-E37E-4A29-BAAF-357CA803576E}"
+                  SQLTask:SqlStatementSource="truncate table dbo.FactTicket" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -114,7 +154,7 @@ where [refTable].[AlternateCustomerID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Transform amd Load Ticket Fact Table\290:invalid};</property>
+                  name="ParameterMap">#{Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[accm_txn_create_time]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -273,7 +313,7 @@ where [refTable].[Date] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Transform amd Load Ticket Fact Table\291:invalid};</property>
+                  name="ParameterMap">#{Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[accm_txn_complete_time]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -923,7 +963,7 @@ where [refTable].[AlternateJourneyID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Transform amd Load Ticket Fact Table\292:invalid};</property>
+                  name="ParameterMap">#{Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[txn_process_time_hours]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1284,12 +1324,6 @@ where [refTable].[AlternateJourneyID] = ?</property>
                       externalMetadataColumnId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[Duration]"
                       lineageId="Package\Transform amd Load Ticket Fact Table\Merge Join.Outputs[Merge Join Output].Columns[Duration]" />
                     <inputColumn
-                      refId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].Columns[InsertDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="InsertDate"
-                      externalMetadataColumnId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[InsertDate]"
-                      lineageId="Package\Transform amd Load Ticket Fact Table\Derive Insert and Modified Date Fields.Outputs[Derived Column Output].Columns[InsertDate]" />
-                    <inputColumn
                       refId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="ModifiedDate"
@@ -1313,6 +1347,12 @@ where [refTable].[AlternateJourneyID] = ?</property>
                       cachedName="DateSK"
                       externalMetadataColumnId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseDateKey]"
                       lineageId="Package\Transform amd Load Ticket Fact Table\Date Lookup.Outputs[Lookup Match Output].Columns[DateSK]" />
+                    <inputColumn
+                      refId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].Columns[InsertDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="InsertDate"
+                      externalMetadataColumnId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[accm_txn_create_time]"
+                      lineageId="Package\Transform amd Load Ticket Fact Table\Derive Insert and Modified Date Fields.Outputs[Derived Column Output].Columns[InsertDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1347,13 +1387,21 @@ where [refTable].[AlternateJourneyID] = ?</property>
                       dataType="r8"
                       name="Duration" />
                     <externalMetadataColumn
-                      refId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[InsertDate]"
-                      dataType="dbTimeStamp"
-                      name="InsertDate" />
-                    <externalMetadataColumn
                       refId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
                       dataType="dbTimeStamp"
                       name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[accm_txn_create_time]"
+                      dataType="dbTimeStamp"
+                      name="accm_txn_create_time" />
+                    <externalMetadataColumn
+                      refId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      name="accm_txn_complete_time" />
+                    <externalMetadataColumn
+                      refId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[txn_process_time_hours]"
+                      dataType="i4"
+                      name="txn_process_time_hours" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5020,6 +5068,14 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Transform and Load Customer Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{9766E0E3-1190-4277-BF31-C52F9064D667}"
+      DTS:From="Package\Transform and Load Customer Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Transform amd Load Ticket Fact Table" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -5034,9 +5090,13 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="260,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table"
+          TopLeft="478.571436721452,304.352945444905" />
+        <NodeLayout
           Size="247.2,41.6"
           Id="Package\Transform and Load Customer Data"
-          TopLeft="410.000006982258,236.294120960995" />
+          TopLeft="345.000005875315,216.411767740976" />
         <NodeLayout
           Size="228,41.6"
           Id="Package\Transform and Load Flight Data"
@@ -5044,33 +5104,33 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
         <NodeLayout
           Size="239.2,41.6"
           Id="Package\Transform and Load Journey Data"
-          TopLeft="233.571432549126,154.470590401686" />
+          TopLeft="220.000003746577,133.058825395512" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="218.285716061689,94.364706622358">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="134.885716487437,60.1058837793278"
+              EndConnector="121.314287684888,38.6941187731537"
               Start="0,0"
-              End="134.885716487437,52.6058837793278">
+              End="121.314287684888,31.1941187731537">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.0529418896639" />
+                    End="0,15.3470593865769" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.0529418896639"
-                    Point2="0,30.0529418896639"
-                    Point3="4,30.0529418896639" />
+                    Point1="0,15.3470593865769"
+                    Point2="0,19.3470593865769"
+                    Point3="4,19.3470593865769" />
                   <mssgle:LineSegment
-                    End="130.885716487437,30.0529418896639" />
+                    End="117.314287684888,19.3470593865769" />
                   <mssgle:CubicBezierSegment
-                    Point1="130.885716487437,30.0529418896639"
-                    Point2="134.885716487437,30.0529418896639"
-                    Point3="134.885716487437,34.0529418896639" />
+                    Point1="117.314287684888,19.3470593865769"
+                    Point2="121.314287684888,19.3470593865769"
+                    Point3="121.314287684888,23.3470593865769" />
                   <mssgle:LineSegment
-                    End="134.885716487437,52.6058837793278" />
+                    End="121.314287684888,31.1941187731537" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5081,30 +5141,30 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="353.171432549126,196.070590401686">
+          TopLeft="339.600003746577,174.658825395512">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="180.428574433132,40.2235305593086"
+              EndConnector="129.000002128737,41.7529423454642"
               Start="0,0"
-              End="180.428574433132,32.7235305593086">
+              End="129.000002128737,34.2529423454642">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.1117652796543" />
+                    End="0,16.8764711727321" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.1117652796543"
-                    Point2="0,20.1117652796543"
-                    Point3="4,20.1117652796543" />
+                    Point1="0,16.8764711727321"
+                    Point2="0,20.8764711727321"
+                    Point3="4,20.8764711727321" />
                   <mssgle:LineSegment
-                    End="176.428574433132,20.1117652796543" />
+                    End="125.000002128737,20.8764711727321" />
                   <mssgle:CubicBezierSegment
-                    Point1="176.428574433132,20.1117652796543"
-                    Point2="180.428574433132,20.1117652796543"
-                    Point3="180.428574433132,24.1117652796543" />
+                    Point1="125.000002128737,20.8764711727321"
+                    Point2="129.000002128737,20.8764711727321"
+                    Point3="129.000002128737,24.8764711727321" />
                   <mssgle:LineSegment
-                    End="180.428574433132,32.7235305593086" />
+                    End="129.000002128737,34.2529423454642" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5113,13 +5173,451 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="260,41.6"
-          Id="Package\Transform amd Load Ticket Fact Table"
-          TopLeft="557.857152357394,335.705887061089" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="468.600005875315,258.011767740976">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139.971430846138,46.3411777039294"
+              Start="0,0"
+              End="139.971430846138,38.8411777039294">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.1705888519647" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.1705888519647"
+                    Point2="0,23.1705888519647"
+                    Point3="4,23.1705888519647" />
+                  <mssgle:LineSegment
+                    End="135.971430846138,23.1705888519647" />
+                  <mssgle:CubicBezierSegment
+                    Point1="135.971430846138,23.1705888519647"
+                    Point2="139.971430846138,23.1705888519647"
+                    Point3="139.971430846138,27.1705888519647" />
+                  <mssgle:LineSegment
+                    End="139.971430846138,38.8411777039294" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Transform amd Load Ticket Fact Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table\Merge Join"
+          TopLeft="400.714292538409,282.62353201787" />
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table\Extract from Journey Staging"
+          TopLeft="555.714295178044,85.6470600246971" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table\Journey Lookup"
+          TopLeft="392.85714954746,391.752944168665" />
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table\Extract from Ticket Staging"
+          TopLeft="146.428573922235,84.1176482385418" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table\Date Lookup"
+          TopLeft="401.428578264859,560.011767376335" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table\Load FactTicket"
+          TopLeft="391.428578094561,712.588241192709" />
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table\Ticket Sort"
+          TopLeft="190.714288962131,198.058826307112" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table\Customer Lookup"
+          TopLeft="387.857149462311,479.694122601876" />
+        <NodeLayout
+          Size="258.4,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table\Derive Insert and Modified Date Fields"
+          TopLeft="341.428577243066,640.270594230408" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table\Journey Sort"
+          TopLeft="600.714295944389,195.764708627879" />
+        <EdgeLayout
+          Id="Package\Transform amd Load Ticket Fact Table.Paths[Sort Output1]"
+          TopLeft="669.514295944389,237.364708627879">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-183.733336739313,45.2588233899906"
+              Start="0,0"
+              End="-183.733336739313,37.7588233899906">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8241319116286" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8241319116286"
+                    Point2="0,26.8241319116286"
+                    Point3="-4,26.8241319116286" />
+                  <mssgle:LineSegment
+                    End="-179.733336739313,26.8241319116286" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-179.733336739313,26.8241319116286"
+                    Point2="-183.733336739313,26.8241319116286"
+                    Point3="-183.733336739313,30.8241319116286" />
+                  <mssgle:LineSegment
+                    End="-183.733336739313,37.7588233899906" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform amd Load Ticket Fact Table.Paths[Sort Output]"
+          TopLeft="255.114288962131,239.658826307112">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="190.133336909612,42.9647057107574"
+              Start="0,0"
+              End="190.133336909612,35.4647057107574">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4644475310099" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.4644475310099"
+                    Point2="0,25.4644475310099"
+                    Point3="4,25.4644475310099" />
+                  <mssgle:LineSegment
+                    End="186.133336909612,25.4644475310099" />
+                  <mssgle:CubicBezierSegment
+                    Point1="186.133336909612,25.4644475310099"
+                    Point2="190.133336909612,25.4644475310099"
+                    Point3="190.133336909612,29.4644475310099" />
+                  <mssgle:LineSegment
+                    End="190.133336909612,35.4647057107574" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform amd Load Ticket Fact Table.Paths[OLE DB Source Output1]"
+          TopLeft="666.414295561216,127.247060024697">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.5176486031819"
+              Start="0,0"
+              End="0,61.0176486031819">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.0176486031819" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform amd Load Ticket Fact Table.Paths[OLE DB Source Output]"
+          TopLeft="252.371431442183,125.717648238542">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72.3411780685703"
+              Start="0,0"
+              End="0,64.8411780685703">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.8411780685703" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform amd Load Ticket Fact Table.Paths[Merge Join Output]"
+          TopLeft="467.385721042935,324.22353201787">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67.5294121507956"
+              Start="0,0"
+              End="0,60.0294121507956">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.0294121507956" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform amd Load Ticket Fact Table.Paths[Lookup Match Output2]"
+          TopLeft="470.428577753963,601.611767376335">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.6588268540722"
+              Start="0,0"
+              End="0,31.1588268540722">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1588268540722" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.7747259270361,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform amd Load Ticket Fact Table.Paths[Lookup Match Output1]"
+          TopLeft="469.242863863585,521.294122601876">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.7176447744599"
+              Start="0,0"
+              End="0,31.2176447744599">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.2176447744599" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.80413488722995,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform amd Load Ticket Fact Table.Paths[Lookup Match Output]"
+          TopLeft="468.757149504886,433.352944168665">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.3411784332103"
+              Start="0,0"
+              End="0,38.8411784332103">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.8411784332103" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,13.6159017166052,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform amd Load Ticket Fact Table.Paths[Derived Column Output]"
+          TopLeft="469.028577668813,681.870594230408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.7176469623014"
+              Start="0,0"
+              End="0,23.2176469623014">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2176469623014" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Transform amd Load Ticket Fact Table.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Transform amd Load Ticket Fact Table.EventHandlers[OnPreExecute]\Truncate FactTicket"
+          TopLeft="445,161" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform amd Load Ticket Fact Table\Extract from Journey Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform amd Load Ticket Fact Table\Journey Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimJourney]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform amd Load Ticket Fact Table\Extract from Ticket Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform amd Load Ticket Fact Table\Date Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform amd Load Ticket Fact Table\Load FactTicket">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform amd Load Ticket Fact Table\Customer Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCustomer]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Transform and Load Customer Data">
     <LayoutInfo>
@@ -5770,390 +6268,6 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Transform amd Load Ticket Fact Table">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="206.4,41.6"
-          Id="Package\Transform amd Load Ticket Fact Table\Extract from Ticket Staging"
-          TopLeft="146.428573922235,84.1176482385418" />
-        <NodeLayout
-          Size="215.2,41.6"
-          Id="Package\Transform amd Load Ticket Fact Table\Extract from Journey Staging"
-          TopLeft="555.714295178044,85.6470600246971" />
-        <NodeLayout
-          Size="128.8,41.6"
-          Id="Package\Transform amd Load Ticket Fact Table\Ticket Sort"
-          TopLeft="190.714288962131,198.058826307112" />
-        <EdgeLayout
-          Id="Package\Transform amd Load Ticket Fact Table.Paths[OLE DB Source Output]"
-          TopLeft="252.371431442183,125.717648238542">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,72.3411780685703"
-              Start="0,0"
-              End="0,64.8411780685703">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.8411780685703" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="137.6,41.6"
-          Id="Package\Transform amd Load Ticket Fact Table\Journey Sort"
-          TopLeft="600.714295944389,195.764708627879" />
-        <EdgeLayout
-          Id="Package\Transform amd Load Ticket Fact Table.Paths[OLE DB Source Output1]"
-          TopLeft="666.414295561216,127.247060024697">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,68.5176486031819"
-              Start="0,0"
-              End="0,61.0176486031819">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.0176486031819" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Transform amd Load Ticket Fact Table\Journey Lookup"
-          TopLeft="392.85714954746,391.752944168665" />
-        <NodeLayout
-          Size="160.8,41.6"
-          Id="Package\Transform amd Load Ticket Fact Table\Customer Lookup"
-          TopLeft="387.857149462311,479.694122601876" />
-        <EdgeLayout
-          Id="Package\Transform amd Load Ticket Fact Table.Paths[Lookup Match Output]"
-          TopLeft="468.757149504886,433.352944168665">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46.3411784332103"
-              Start="0,0"
-              End="0,38.8411784332103">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.8411784332103" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,13.6159017166052,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="258.4,41.6"
-          Id="Package\Transform amd Load Ticket Fact Table\Derive Insert and Modified Date Fields"
-          TopLeft="341.428577243066,640.270594230408" />
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\Transform amd Load Ticket Fact Table\Load FactTicket"
-          TopLeft="391.428578094561,712.588241192709" />
-        <EdgeLayout
-          Id="Package\Transform amd Load Ticket Fact Table.Paths[Derived Column Output]"
-          TopLeft="469.028577668813,681.870594230408">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.7176469623014"
-              Start="0,0"
-              End="0,23.2176469623014">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.2176469623014" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="137.6,41.6"
-          Id="Package\Transform amd Load Ticket Fact Table\Date Lookup"
-          TopLeft="401.428578264859,560.011767376335" />
-        <EdgeLayout
-          Id="Package\Transform amd Load Ticket Fact Table.Paths[Lookup Match Output1]"
-          TopLeft="469.242863863585,521.294122601876">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.7176447744599"
-              Start="0,0"
-              End="0,31.2176447744599">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.2176447744599" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.80413488722996,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transform amd Load Ticket Fact Table.Paths[Lookup Match Output2]"
-          TopLeft="470.428577753963,601.611767376335">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.6588268540722"
-              Start="0,0"
-              End="0,31.1588268540722">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.1588268540722" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.77472592703612,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Transform amd Load Ticket Fact Table\Merge Join"
-          TopLeft="400.714292538409,282.62353201787" />
-        <EdgeLayout
-          Id="Package\Transform amd Load Ticket Fact Table.Paths[Sort Output]"
-          TopLeft="255.114288962131,239.658826307112">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="190.133336909612,42.9647057107574"
-              Start="0,0"
-              End="190.133336909612,35.4647057107574">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.4644475310099" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.4644475310099"
-                    Point2="0,25.4644475310099"
-                    Point3="4,25.4644475310099" />
-                  <mssgle:LineSegment
-                    End="186.133336909612,25.4644475310099" />
-                  <mssgle:CubicBezierSegment
-                    Point1="186.133336909612,25.4644475310099"
-                    Point2="190.133336909612,25.4644475310099"
-                    Point3="190.133336909612,29.4644475310099" />
-                  <mssgle:LineSegment
-                    End="190.133336909612,35.4647057107574" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transform amd Load Ticket Fact Table.Paths[Sort Output1]"
-          TopLeft="669.514295944389,237.364708627879">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-183.733336739313,45.2588233899906"
-              Start="0,0"
-              End="-183.733336739313,37.7588233899906">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.8241319116286" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.8241319116286"
-                    Point2="0,26.8241319116286"
-                    Point3="-4,26.8241319116286" />
-                  <mssgle:LineSegment
-                    End="-179.733336739313,26.8241319116286" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-179.733336739313,26.8241319116286"
-                    Point2="-183.733336739313,26.8241319116286"
-                    Point3="-183.733336739313,30.8241319116286" />
-                  <mssgle:LineSegment
-                    End="-183.733336739313,37.7588233899906" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transform amd Load Ticket Fact Table.Paths[Merge Join Output]"
-          TopLeft="467.385721042935,324.22353201787">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,67.5294121507956"
-              Start="0,0"
-              End="0,60.0294121507956">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,60.0294121507956" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transform amd Load Ticket Fact Table\Extract from Ticket Staging">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transform amd Load Ticket Fact Table\Extract from Journey Staging">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transform amd Load Ticket Fact Table\Journey Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimJourney]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transform amd Load Ticket Fact Table\Customer Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimCustomer]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transform amd Load Ticket Fact Table\Load FactTicket">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transform amd Load Ticket Fact Table\Date Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

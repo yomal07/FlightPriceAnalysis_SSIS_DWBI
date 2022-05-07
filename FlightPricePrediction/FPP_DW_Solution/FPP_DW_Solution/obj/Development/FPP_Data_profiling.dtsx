@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FPP_Data_profiling"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{314A4D69-56B5-4595-8D60-888EE22A1E4F}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{69B144D1-1EFD-422F-926A-33BD52A01459}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -227,7 +227,7 @@
         <NodeLayout
           Size="167.2,41.6"
           Id="Package\Data Profiling Task"
-          TopLeft="179.285717338932,100.176471993173" />
+          TopLeft="200.71428913243,106.294119137794" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

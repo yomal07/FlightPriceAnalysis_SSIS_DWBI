@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FPP_load_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{64AE7D7C-F617-49B5-9A49-6F03C25B5D35}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{C94980C9-EB3E-4A32-A18E-BCCFCB570380}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2017,39 +2017,47 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="236,41.6"
+          Id="Package\Extract Customer Data to Staging"
+          TopLeft="302.142862288319,208.764708810199" />
+        <NodeLayout
           Size="216.8,41.6"
           Id="Package\Extract Flight Data to Staging"
           TopLeft="72.1428583714427,53.5294125154357" />
         <NodeLayout
           Size="228,41.6"
           Id="Package\Extract Journey Data to Staging"
-          TopLeft="176.428574433132,154.470590401686" />
+          TopLeft="185.714288876981,126.941178250891" />
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Extract Ticket Data to Staging"
+          TopLeft="422.857150058357,294.188239369508" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="180.542858371443,95.1294125154357">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="109.885716061689,59.3411778862501"
+              EndConnector="119.171430505538,31.8117657354548"
               Start="0,0"
-              End="109.885716061689,51.8411778862501">
+              End="119.171430505538,24.3117657354548">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.670588943125" />
+                    End="0,11.9058828677274" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.670588943125"
-                    Point2="0,29.670588943125"
-                    Point3="4,29.670588943125" />
+                    Point1="0,11.9058828677274"
+                    Point2="0,15.9058828677274"
+                    Point3="4,15.9058828677274" />
                   <mssgle:LineSegment
-                    End="105.885716061689,29.670588943125" />
+                    End="115.171430505538,15.9058828677274" />
                   <mssgle:CubicBezierSegment
-                    Point1="105.885716061689,29.670588943125"
-                    Point2="109.885716061689,29.670588943125"
-                    Point3="109.885716061689,33.670588943125" />
+                    Point1="115.171430505538,15.9058828677274"
+                    Point2="119.171430505538,15.9058828677274"
+                    Point3="119.171430505538,19.9058828677274" />
                   <mssgle:LineSegment
-                    End="109.885716061689,51.8411778862501" />
+                    End="119.171430505538,24.3117657354548" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2058,36 +2066,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="236,41.6"
-          Id="Package\Extract Customer Data to Staging"
-          TopLeft="295.71429075027,253.882356501781" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="290.428574433132,196.070590401686">
+          TopLeft="299.714288876981,168.541178250891">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="123.285716317138,57.8117661000948"
+              EndConnector="120.428573411338,40.223530559309"
               Start="0,0"
-              End="123.285716317138,50.3117661000948">
+              End="120.428573411338,32.723530559309">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.9058830500474" />
+                    End="0,16.1117652796545" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.9058830500474"
-                    Point2="0,28.9058830500474"
-                    Point3="4,28.9058830500474" />
+                    Point1="0,16.1117652796545"
+                    Point2="0,20.1117652796545"
+                    Point3="4,20.1117652796545" />
                   <mssgle:LineSegment
-                    End="119.285716317138,28.9058830500474" />
+                    End="116.428573411338,20.1117652796545" />
                   <mssgle:CubicBezierSegment
-                    Point1="119.285716317138,28.9058830500474"
-                    Point2="123.285716317138,28.9058830500474"
-                    Point3="123.285716317138,32.9058830500474" />
+                    Point1="116.428573411338,20.1117652796545"
+                    Point2="120.428573411338,20.1117652796545"
+                    Point3="120.428573411338,24.1117652796545" />
                   <mssgle:LineSegment
-                    End="123.285716317138,50.3117661000948" />
+                    End="120.428573411338,32.723530559309" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2096,36 +2100,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="219.2,41.6"
-          Id="Package\Extract Ticket Data to Staging"
-          TopLeft="420.000007152557,344.117651884944" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="413.71429075027,295.482356501781">
+          TopLeft="420.142862288319,250.364708810199">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="115.885716402287,48.6352953831631"
+              EndConnector="112.314287770037,43.8235305593089"
               Start="0,0"
-              End="115.885716402287,41.1352953831631">
+              End="112.314287770037,36.3235305593089">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.3176476915815" />
+                    End="0,17.9117652796545" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.3176476915815"
-                    Point2="0,24.3176476915815"
-                    Point3="4,24.3176476915815" />
+                    Point1="0,17.9117652796545"
+                    Point2="0,21.9117652796545"
+                    Point3="4,21.9117652796545" />
                   <mssgle:LineSegment
-                    End="111.885716402287,24.3176476915815" />
+                    End="108.314287770037,21.9117652796545" />
                   <mssgle:CubicBezierSegment
-                    Point1="111.885716402287,24.3176476915815"
-                    Point2="115.885716402287,24.3176476915815"
-                    Point3="115.885716402287,28.3176476915815" />
+                    Point1="108.314287770037,21.9117652796545"
+                    Point2="112.314287770037,21.9117652796545"
+                    Point3="112.314287770037,25.9117652796545" />
                   <mssgle:LineSegment
-                    End="115.885716402287,41.1352953831631" />
+                    End="112.314287770037,36.3235305593089" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2138,170 +2138,18 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Extract Flight Data to Staging">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Extract Flight Data to Staging\OLE DB Source"
-          TopLeft="130.714287940337,123.117648785502" />
-        <NodeLayout
-          Size="236,41.6"
-          Id="Package\Extract Flight Data to Staging\Load Data to Flight Satging Table"
-          TopLeft="530.000009025846,120.823531106269" />
-        <EdgeLayout
-          Id="Package\Extract Flight Data to Staging.Paths[OLE DB Source Output]"
-          TopLeft="280.314287940337,142.770589945886">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="249.68572108551,0"
-              Start="0,0"
-              End="242.18572108551,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="242.18572108551,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Flight Data to Staging\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Flight Data to Staging\Load Data to Flight Satging Table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package\Extract Flight Data to Staging.EventHandlers[OnPreExecute]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="216.8,41.6"
-          Id="Package\Extract Flight Data to Staging.EventHandlers[OnPreExecute]\Truncate Flight Staging Table"
-          TopLeft="465,190" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
-  <TaskHost
-    design-time-name="Package\Extract Journey Data to Staging">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Extract Journey Data to Staging\OLE DB Source"
-          TopLeft="205,133" />
-        <NodeLayout
-          Size="247.2,41.6"
-          Id="Package\Extract Journey Data to Staging\Load Data to Journey Staging Table"
-          TopLeft="658,135" />
-        <EdgeLayout
-          Id="Package\Extract Journey Data to Staging.Paths[OLE DB Source Output]"
-          TopLeft="354.6,154.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="303.4,0"
-              Start="0,0"
-              End="295.9,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="295.9,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Journey Data to Staging\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Journey Data to Staging\Load Data to Journey Staging Table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package\Extract Journey Data to Staging.EventHandlers[OnPreExecute]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="228,41.6"
-          Id="Package\Extract Journey Data to Staging.EventHandlers[OnPreExecute]\Truncate Journey Staging Table"
-          TopLeft="406,163" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
-  <TaskHost
     design-time-name="Package\Extract Customer Data to Staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Extract Customer Data to Staging\Flat File Source"
-          TopLeft="318,175" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="255.2,41.6"
           Id="Package\Extract Customer Data to Staging\Load Data to Customer Staging Table"
           TopLeft="803,168" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Extract Customer Data to Staging\Flat File Source"
+          TopLeft="318,175" />
         <EdgeLayout
           Id="Package\Extract Customer Data to Staging.Paths[Flat File Source Output]"
           TopLeft="468.4,192.3">
@@ -2321,12 +2169,26 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Extract Customer Data to Staging.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="236,41.6"
+          Id="Package\Extract Customer Data to Staging.EventHandlers[OnPreExecute]\Truncate Customer Staging Table"
+          TopLeft="320,99" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <PipelineComponentMetadata
     design-time-name="Package\Extract Customer Data to Staging\Load Data to Customer Staging Table">
     <Properties>
@@ -2340,23 +2202,167 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extract Flight Data to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="236,41.6"
+          Id="Package\Extract Flight Data to Staging\Load Data to Flight Satging Table"
+          TopLeft="530.000009025846,120.823531106269" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Extract Flight Data to Staging\OLE DB Source"
+          TopLeft="130.714287940337,123.117648785502" />
+        <EdgeLayout
+          Id="Package\Extract Flight Data to Staging.Paths[OLE DB Source Output]"
+          TopLeft="280.314287940337,142.770589945886">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="249.68572108551,0"
+              Start="0,0"
+              End="242.18572108551,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="242.18572108551,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <DtsEventHandler
-    design-time-name="Package\Extract Customer Data to Staging.EventHandlers[OnPreExecute]">
+    design-time-name="Package\Extract Flight Data to Staging.EventHandlers[OnPreExecute]">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="236,41.6"
-          Id="Package\Extract Customer Data to Staging.EventHandlers[OnPreExecute]\Truncate Customer Staging Table"
-          TopLeft="320,99" />
+          Size="216.8,41.6"
+          Id="Package\Extract Flight Data to Staging.EventHandlers[OnPreExecute]\Truncate Flight Staging Table"
+          TopLeft="465,190" />
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Flight Data to Staging\Load Data to Flight Satging Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Flight Data to Staging\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extract Journey Data to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="247.2,41.6"
+          Id="Package\Extract Journey Data to Staging\Load Data to Journey Staging Table"
+          TopLeft="658,135" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Extract Journey Data to Staging\OLE DB Source"
+          TopLeft="205,133" />
+        <EdgeLayout
+          Id="Package\Extract Journey Data to Staging.Paths[OLE DB Source Output]"
+          TopLeft="354.6,154.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="303.4,0"
+              Start="0,0"
+              End="295.9,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="295.9,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Extract Journey Data to Staging.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="228,41.6"
+          Id="Package\Extract Journey Data to Staging.EventHandlers[OnPreExecute]\Truncate Journey Staging Table"
+          TopLeft="406,163" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Journey Data to Staging\Load Data to Journey Staging Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Journey Data to Staging\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Extract Ticket Data to Staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Extract Ticket Data to Staging\Flat File Source"
@@ -2384,12 +2390,26 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Extract Ticket Data to Staging.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Extract Ticket Data to Staging.EventHandlers[OnPreExecute]\Truncate Ticket Staging Table"
+          TopLeft="261,99" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <PipelineComponentMetadata
     design-time-name="Package\Extract Ticket Data to Staging\Load Data to Ticket Staging Table">
     <Properties>
@@ -2403,17 +2423,5 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package\Extract Ticket Data to Staging.EventHandlers[OnPreExecute]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="219.2,41.6"
-          Id="Package\Extract Ticket Data to Staging.EventHandlers[OnPreExecute]\Truncate Ticket Staging Table"
-          TopLeft="261,99" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
