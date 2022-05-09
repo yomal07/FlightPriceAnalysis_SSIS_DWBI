@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FPP_load_DataWarehouse"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{3B94645B-4BD5-4655-BB85-B9CC1052746F}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{3E477668-5318-4EE6-AA79-07BE6DE99261}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -426,6 +426,13 @@ where [refTable].[Date] = ?</property>
                   refId="Package\Transform amd Load Ticket Fact Table\Derive Insert and Modified Date Fields.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform amd Load Ticket Fact Table\Derive Insert and Modified Date Fields.Inputs[Derived Column Input].Columns[Duration]"
+                      cachedDataType="r8"
+                      cachedName="Duration"
+                      lineageId="Package\Transform amd Load Ticket Fact Table\Merge Join.Outputs[Merge Join Output].Columns[Duration]" />
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -479,6 +486,28 @@ where [refTable].[Date] = ?</property>
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform amd Load Ticket Fact Table\Derive Insert and Modified Date Fields.Outputs[Derived Column Output].Columns[DurationRound]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transform amd Load Ticket Fact Table\Derive Insert and Modified Date Fields.Outputs[Derived Column Output].Columns[DurationRound]"
+                      name="DurationRound"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ROUND](#{Package\Transform amd Load Ticket Fact Table\Merge Join.Outputs[Merge Join Output].Columns[Duration]},3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ROUND(Duration,3)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1318,12 +1347,6 @@ where [refTable].[AlternateJourneyID] = ?</property>
                       externalMetadataColumnId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[Stops]"
                       lineageId="Package\Transform amd Load Ticket Fact Table\Merge Join.Outputs[Merge Join Output].Columns[Stops]" />
                     <inputColumn
-                      refId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].Columns[Duration]"
-                      cachedDataType="r8"
-                      cachedName="Duration"
-                      externalMetadataColumnId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[Duration]"
-                      lineageId="Package\Transform amd Load Ticket Fact Table\Merge Join.Outputs[Merge Join Output].Columns[Duration]" />
-                    <inputColumn
                       refId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="ModifiedDate"
@@ -1353,6 +1376,12 @@ where [refTable].[AlternateJourneyID] = ?</property>
                       cachedName="InsertDate"
                       externalMetadataColumnId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[accm_txn_create_time]"
                       lineageId="Package\Transform amd Load Ticket Fact Table\Derive Insert and Modified Date Fields.Outputs[Derived Column Output].Columns[InsertDate]" />
+                    <inputColumn
+                      refId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].Columns[DurationRound]"
+                      cachedDataType="r8"
+                      cachedName="DurationRound"
+                      externalMetadataColumnId="Package\Transform amd Load Ticket Fact Table\Load FactTicket.Inputs[OLE DB Destination Input].ExternalColumns[Duration]"
+                      lineageId="Package\Transform amd Load Ticket Fact Table\Derive Insert and Modified Date Fields.Outputs[Derived Column Output].Columns[DurationRound]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5179,26 +5208,26 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="139.971430846138,46.3411777039294"
+              EndConnector="139.971430846137,46.341177703929"
               Start="0,0"
-              End="139.971430846138,38.8411777039294">
+              End="139.971430846137,38.841177703929">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.1705888519647" />
+                    End="0,19.1705888519645" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.1705888519647"
-                    Point2="0,23.1705888519647"
-                    Point3="4,23.1705888519647" />
+                    Point1="0,19.1705888519645"
+                    Point2="0,23.1705888519645"
+                    Point3="4,23.1705888519645" />
                   <mssgle:LineSegment
-                    End="135.971430846138,23.1705888519647" />
+                    End="135.971430846137,23.1705888519645" />
                   <mssgle:CubicBezierSegment
-                    Point1="135.971430846138,23.1705888519647"
-                    Point2="139.971430846138,23.1705888519647"
-                    Point3="139.971430846138,27.1705888519647" />
+                    Point1="135.971430846137,23.1705888519645"
+                    Point2="139.971430846137,23.1705888519645"
+                    Point3="139.971430846137,27.1705888519645" />
                   <mssgle:LineSegment
-                    End="139.971430846138,38.8411777039294" />
+                    End="139.971430846137,38.841177703929" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5286,9 +5315,7 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5322,9 +5349,7 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5346,9 +5371,7 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5370,9 +5393,7 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5394,9 +5415,7 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5490,9 +5509,7 @@ WHERE [AlternateCustomerID] = ? AND [EndDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
